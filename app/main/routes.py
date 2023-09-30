@@ -1,8 +1,14 @@
 from app.main import bp
 from flask import request, jsonify
 from app.sql.SQLiteDatabaseReader import SQLiteDatabaseReader
+from app.main.get_databases import get_databases
 
 DATABASES_PATH = "db/"
+
+
+@bp.route('/sql/db', methods=['GET'])
+def databases():
+    return jsonify(get_databases())
 
 
 @bp.route('/sql/query', methods=['POST'])
