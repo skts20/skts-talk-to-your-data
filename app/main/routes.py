@@ -4,7 +4,7 @@ from app.sql.SQLiteDatabaseReader import SQLiteDatabaseReader
 
 
 @bp.route('/sql/query', methods=['POST'])
-def process_json():
+def generate_query():
     try:
         data = request.get_json()
 
@@ -26,7 +26,7 @@ def process_json():
 
 
 @bp.route('/sql/data', methods=['POST'])
-def process_json():
+def run_query():
     try:
         data = request.get_json()
 
