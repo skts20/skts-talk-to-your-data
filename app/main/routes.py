@@ -2,6 +2,8 @@ from app.main import bp
 from flask import request, jsonify
 from app.sql.SQLiteDatabaseReader import SQLiteDatabaseReader
 
+DATABASES_PATH = "db/"
+
 
 @bp.route('/sql/query', methods=['POST'])
 def generate_query():
@@ -31,20 +33,21 @@ def run_query():
         data = request.get_json()
 
         if "query" in data and "dataset" in data:
-            query = data["input"]
+            query = data["query"]
             dataset = data["dataset"]
 
-            sql_reader = SQLiteDatabaseReader(dataset)
+            sql_reader = SQLiteDatabaseReader(f"{DATABASES_PATH + dataset}.db")
             sql_reader.connect()
 
-            result = sql_reader.execute_query(query)
+            columns, rows = sql_reader.execute_query(query)
 
             sql_reader.close()
 
             response = {
-                # dajemy w jakiesjs fajnej strukturce
-                result
+                "columns": columns,
+                "rows": rows
             }
+
             return jsonify(response), 200
         else:
             return jsonify({"error": "Invalid request body"}), 400
