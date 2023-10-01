@@ -45,6 +45,14 @@ Llama SKTS flow:
 ## API definition
 
 API definition is generated with OpenAPI technology. `openapi.yaml`
+
+`sql/query` example:
+
+![img_6.png](img_6.png)
+
+`sql/data` example:
+
+![img_5.png](img_5.png)
 ## High level Architecture
 
 ![img.png](img.png)

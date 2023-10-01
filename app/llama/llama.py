@@ -11,7 +11,6 @@ Generate the query to get: {QUERY_PLACEHOLDER}
 
 def prepare_prompt(db_id: str, lang_query: str):
     db_schema = databases.get_database_schema(db_id)
-    print(db_schema)
     return LLAMA_PROMPT_TEMPLATE.replace(DATABASE_SCHEMA_PLACEHOLDER, db_schema).replace(QUERY_PLACEHOLDER, lang_query)
 
 
