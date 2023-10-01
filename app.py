@@ -5,8 +5,9 @@ app = Flask(__name__)
 from app.main import bp as main_bp
 app.register_blueprint(main_bp)
 
-# init model and tokenizer
-from app.llama.llama_init import *
+from app.llama import bp as llama_bp
+app.register_blueprint(llama_bp)
+
 
 @app.route('/health')
 def health():

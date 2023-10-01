@@ -21,7 +21,7 @@ def request_llama(prompt):
     sequences = model_pipeline(
         prompt,
         do_sample=True,
-        top_k=5,
+        top_k=10,
         num_return_sequences=1,
         eos_token_id=tokenizer.eos.token_id,
         max_length=300,

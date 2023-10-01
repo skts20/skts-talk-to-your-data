@@ -1,6 +1,5 @@
 from app.main import bp
 from flask import request, jsonify
-from flask_caching import Cache
 from app.sql.SQLiteDatabaseReader import SQLiteDatabaseReader
 from app.main.databases import get_databases
 from app.llama import llama
