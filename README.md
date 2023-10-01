@@ -1,4 +1,5 @@
 # skts-talk-to-your-data
+![img_3.png](img_3.png)
 
 Talk to your data - HackYeah 2023 project
 
