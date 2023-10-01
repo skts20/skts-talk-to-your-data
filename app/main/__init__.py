@@ -1,8 +1,19 @@
 from flask import Blueprint
+from flask_caching import Cache
 from transformers import LlamaTokenizer, LlamaForCausalLM, pipeline
 import torch
 
+#app
 bp = Blueprint('main', __name__)
+
+config = {
+    "DEBUG": True,
+    "CACHE_TYPE": "SimpleCache",
+    "CACHE_DEFAULT_TIMEOUT": 0
+}
+
+cache = Cache(config=config)
+cache.init_app(bp)
 
 tokenizer = LlamaTokenizer.from_pretrained("../../llama_converted")
 model = LlamaForCausalLM.from_pretrained(pretrained_model_name_or_path="../../llama_converted",
