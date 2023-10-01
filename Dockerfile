@@ -1,3 +1,4 @@
+#!/bin/python3
 FROM python:3.10-slim
 ENV FLASK_APP=app
 WORKDIR /app

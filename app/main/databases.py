@@ -14,3 +14,9 @@ def is_database(filename: str):
 
 def get_databases():
     return list(map(get_db_name, filter(is_database, os.listdir(DATABASES_DIR))))
+
+
+def get_database_schema(db_id):
+    with open(f'{DATABASES_DIR}/schemas/{db_id}.schema', 'r') as file:
+        file_content = file.read()
+    return file_content

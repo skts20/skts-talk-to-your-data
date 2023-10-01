@@ -1,8 +1,8 @@
 from app.main import bp
 from flask import request, jsonify
 from app.sql.SQLiteDatabaseReader import SQLiteDatabaseReader
-from app.main.get_databases import get_databases
-
+from app.main.databases import get_databases
+from app.llama import llama
 DATABASES_PATH = "db/"
 
 
@@ -20,10 +20,11 @@ def generate_query():
             input_string = data["input"]
             dataset = data["dataset"]
 
-            # llama processing -----
+            prompt = llama.prepare_prompt(dataset, input_string)
+            result = llama.request_llama(prompt)
 
             response = {
-                #     tutaj dajemy wynik z llamy
+                "result": result
             }
             return jsonify(response), 200
         else:
