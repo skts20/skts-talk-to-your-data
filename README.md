@@ -18,13 +18,26 @@ Project is prepared to use multiple databases (chosen by the user). To setup new
 - save in the `db/` directory (`{name}.db`)
 - save ddl file (CREATE, UPDATE queries) in the single file inside `db/ddl/` in format `{name}.ddl`
 
+How the directory structure should look like:
+![img_2.png](img_2.png)
+
 ## LLM model installation
 
-- download your llama model and save directory on base level of project's structure as directory named: `llama`
+The most important aspect in this project is the LLM Llama 2 model. To run service locally (or dockerize and push to the vm). SKTS project prepared easy pluging-in the LLM model inside the project structure. Here is the few steps instruction:
+- download your llama model
+- save whole directory on the base level of the project in directory named `llama`.
+
+SKTS prepared initialization of the language model, there is only need to put the model inside the project structure.
+
+How the directory structure should look like:
+![img_1.png](img_1.png)
+
+Llama SKTS flow:
+![img_4.png](img_4.png)
 
 ## Dockerization
 
-- with installed databases and llama, build the docker image with prepared `Dockerfile`
+- with installed databases and llama, build the docker image by running `docker build` with prepared `Dockerfile`
 
 ## High level Architecture
 
