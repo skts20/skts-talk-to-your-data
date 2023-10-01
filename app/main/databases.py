@@ -17,6 +17,6 @@ def get_databases():
 
 
 def get_database_schema(db_id):
-    with open(f'{DATABASES_DIR}/schemas/{db_id}.schema', 'r') as file:
+    with open(f'{DATABASES_DIR}/ddl/{db_id}.ddl', 'r') as file:
         file_content = file.read()
     return file_content
