@@ -19,6 +19,7 @@ Project is prepared to use multiple databases (chosen by the user). To setup new
 - save ddl file (CREATE, UPDATE queries) in the single file inside `db/ddl/` in format `{name}.ddl`
 
 How the directory structure should look like:
+
 ![img_2.png](img_2.png)
 
 ## LLM model installation
@@ -30,15 +31,20 @@ The most important aspect in this project is the LLM Llama 2 model. To run servi
 SKTS prepared initialization of the language model, there is only need to put the model inside the project structure.
 
 How the directory structure should look like:
+
 ![img_1.png](img_1.png)
 
 Llama SKTS flow:
+
 ![img_4.png](img_4.png)
 
 ## Dockerization
 
 - with installed databases and llama, build the docker image by running `docker build` with prepared `Dockerfile`
 
+## API definition
+
+API definition is generated with OpenAPI technology. `openapi.yaml`
 ## High level Architecture
 
 ![img.png](img.png)
