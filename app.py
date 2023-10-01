@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ from app.llama.llama_init import *
 
 @app.route('/health')
 def health():
-    return 'Hi, I am running'
+    return jsonify("Hi, I am running!"), 200
 
 
 if __name__ == '__main__':
